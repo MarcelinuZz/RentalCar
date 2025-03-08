@@ -1,0 +1,194 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e8d5c0;
+}
+
+
+.container, .container-fluid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.navbar {
+    background-color: #c1ad8c;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    position: relative; 
+}
+
+.navbar-left {
+    flex: 1; 
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.navbar-nav {
+    list-style-type: none;
+    display: flex; 
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar-nav li {
+    margin-left: 20px;
+}
+
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px; 
+}
+
+
+.nav-link:hover {
+    color: #007bff;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+
+.form-input, .form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 0;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+
+.text-center {
+    text-align: center;
+    background-color: beige;
+    border-radius: 27%;
+    padding: 20px;
+    margin-top: 5px;
+}
+
+
+.form-card {
+    background-color: #efdba3;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+
+.alert-danger {
+    color: red;
+    margin-top: 10px;
+}
+
+.form-horizontal {
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    flex-wrap: wrap; 
+}
+
+
+.form-group {
+    flex: 1 1 200px; 
+    margin-bottom: 15px;
+}
+
+.form-input, .form-select {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #9c5910;
+    border-radius: 5px;
+    margin: 0
+}
+
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.car-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f2f2f2; 
+}
+
+.rent-button {
+    background-color: #ffc107;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+
+.rent-button:hover {
+    background-color: #e6a700;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}

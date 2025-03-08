@@ -1,0 +1,71 @@
+﻿@model RentalCarClient.Models.Input.LoginRequest
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - RentalCarClient</title>
+    <link rel="stylesheet" href="/css/custom.css" asp-append-version="true" />
+    <style>
+        body {
+            background-color: #e8d5c0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background-color: #efdba3;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .login-container .form-input {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login to Your Account</h2>
+        <form asp-action="Login" method="post">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-input" id="email" name="Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-input" id="password" name="Password" required>
+            </div>
+            <button type="submit" class="btn-primary">Login</button>
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <div class="alert-danger">
+                    @ViewBag.ErrorMessage
+                </div>
+            }
+        </form>
+        <hr />
+        <p class="text-center">Don't have an account? <a asp-controller="Auth" asp-action="RegisterPage">Sign Up</a></p>
+    </div>
+</body>
+</html>

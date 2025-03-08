@@ -1,0 +1,87 @@
+.payment-container {
+    background-color: #f7eef1;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.payment-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #6c3483;
+}
+
+.car-image-container {
+    margin-bottom: 20px;
+}
+
+.car-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.carousel-btn {
+    background-color: #6c3483;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+.car-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.car-details-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.details-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.details-table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.details-table th, .details-table td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.details-table th {
+    width: 40%;
+    color: #6c3483;
+}
+
+.rent-button {
+    background-color: #ec7063;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,72 @@
+﻿@model RentalCarClient.Models.Output.GetPaymentOutput
+
+<link rel="stylesheet" href="css/payment.css" asp-append-version="true" />
+
+@{
+
+    string rentalDateStr = Model.RentalDate;
+
+
+    var dates = rentalDateStr.Split("sampai");
+
+    DateTime rentalDate = DateTime.Parse(dates[0].Trim());
+    DateTime returnDate = DateTime.Parse(dates[1].Trim());
+}
+
+<div class="container payment-container">
+    <h2 class="text-center payment-title">Sewa Mobil</h2>
+
+    <div class="car-image-container">
+        <div class="car-carousel">
+            <img src="/Image/@Model.ImageLink" alt="@Model.Car_name" class="car-image" />
+        </div>
+    </div>
+    
+    <form method="post" asp-action="SubmitRentalPayment">
+        <div class="car-details-container">
+            <h3 class="details-title">Informasi Mobil</h3>
+            <table class="details-table">
+                <tr>
+                    <th>Tipe Mobil</th>
+                    <td>@Model.Car_name</td>
+                </tr>
+                <tr>
+                    <th>Nama Mobil</th>
+                    <td>@Model.Car_name</td>
+                </tr>
+                <tr>
+                    <th>Transmisi</th>
+                    <td>@Model.transmission</td>
+                </tr>
+                <tr>
+                    <th>Jumlah Penumpang</th>
+                    <td>@Model.Number_Seat</td>
+                </tr>
+                <tr>
+                    <th>Nama Penyewa</th>
+                    <td>@Model.Name_Customer</td>
+                </tr>
+                <tr>
+                    <th>Tanggal Sewa</th>
+                    <td>@rentalDate sampai @returnDate</td>
+                </tr>
+                <tr>
+                    <th>Harga Sewa</th>
+                    <td>Rp. @Model.Price_Per_Day / day</td>
+                </tr>
+                <tr>
+                    <th>Total Harga Sewa</th>
+                    <td>Rp. @Model.TotalPrice</td>
+                </tr>
+            </table>
+
+            <input type="hidden" id="userName" name="UserName" value="@Model.Name_Customer" />
+            <input type="hidden" id="CarName" name="CarName" value="@Model.Car_name" />
+            <input type="hidden" id="rentalDate" name="RentalDate" value="@rentalDate.ToString("yyyy-MM-dd")" />
+            <input type="hidden" id="returnDate" name="ReturnDate" value="@returnDate.ToString("yyyy-MM-dd")" />
+            <input type="hidden" id="totalPrice" name="TotalPrice" value="@Model.TotalPrice" />
+
+            <button type="submit" class="btn rent-button">Sewa</button>
+        </div>
+    </form>
+</div>

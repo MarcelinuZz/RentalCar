@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+    var isUserLoggedIn = HttpContextAccessor.HttpContext.Session.GetString("UserName") != null;  
+    string UserName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
+    var rentalDate = Context.Request.Query["RentalDate"].ToString(); 
+    var returnDate = Context.Request.Query["ReturnDate"].ToString(); 
+}
+
+<link rel="stylesheet" href="/css/cars.css" asp-append-version="true" />
+
+<div class="container-fluid mt-5">
+    <h2 class="text-center">LinuZRentalSHOP</h2>
+
+    <form class="form-horizontal mt-4 d-flex flex-wrap" method="get" asp-action="GetCar" id="filterForm">
+        <div class="form-group mx-2">
+            <label for="rentalDate" class="sr-only">Pickup Date</label>
+            <input type="date" id="rentalDate" name="RentalDate" class="form-input" value="@Context.Request.Query["RentalDate"]" placeholder="Pickup Date">
+            
+        </div>
+
+        <div class="form-group mx-2">
+            <label for="returnDate" class="sr-only">Return Date</label>
+            <input type="date" id="returnDate" name="ReturnDate" class="form-input" value="@Context.Request.Query["ReturnDate"]" placeholder="Return Date">
+        </div>
+
+        <div class="form-group mx-2">
+            <label for="yearFilter" class="sr-only">Filter Tahun Pembuatan</label>
+            <input type="number" id="year" name="Year" class="form-input" placeholder="Tahun Pembuatan" min="1900" max="2099" step="1">
+        </div>
+
+        <div class="form-group mx-2">
+            <label for="sortBy" class="sr-only">Sortir Berdasarkan</label>
+            <select id="sortBy" name="orderBy" class="form-select">
+                <option value="ASC">Harga Terendah - Tertinggi</option>
+                <option value="DESC">Harga Tertinggi - Terendah</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary mx-2">Cari</button>
+    </form>
+</div>
+
+@model IEnumerable<RentalCarClient.Models.Output.GetMsCarOutput>
+
+<div class="container">
+    <h2 class="text-center">Daftar Mobil</h2>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="car-grid">
+            @foreach (var car in Model)
+            {
+                <div class="car-card">
+                    <img src="/Image/@car.image_link.FirstOrDefault()" alt="@car.name" class="car-img" />
+
+                    <div class="car-details">
+                        <h5 class="car-title">@car.name</h5>
+                        <p class="car-text">
+                            Kapasitas: @car.number_of_car_seats<br>
+                            Transmisi: @car.transmission<br>
+                            Harga per Hari: Rp @car.price_per_day
+                        </p>
+                        <p>
+                            Status: @(car.status.HasValue && car.status.Value ? "Tersedia" : "Tidak Tersedia")
+                        </p>
+
+                        
+                        @if (!isUserLoggedIn)
+                        {
+                            <button llass="rent-button" disabled>Sewa Sekarang</button>
+                            <p class="text-danger">*Anda harus login untuk menyewa mobil.</p>
+                        }
+                        else{
+                            <form method="get" asp-action="PaymentDetail">
+                                <input type="hidden" id="car_Id" name="Car_id" value="@car.CarId" />
+                                <input type="hidden" id="rental_Date" name="Rental_Date" value="@rentalDate" />
+                                <input type="hidden" id="return_Date" name="Return_Date" value="@returnDate" />
+                                <input type="hidden" id="name" name="Name" value="@UserName" />
+                                
+                                <button type="submit" class="rent-button" 
+                                        onclick="return validateRental('@car.CarId')">Sewa Sekarang</button>
+                            </form>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>Data mobil tidak tersedia.</p>
+    }
+
+    <div class="pagination">
+        <a asp-action="GetCar" asp-route-pageNumber="@(ViewBag.CurrentPage - 1)">Previous</a> |
+        <a asp-action="GetCar" asp-route-pageNumber="@(ViewBag.CurrentPage + 1)">Next</a>
+    </div>
+</div>
+
+<script>
+    function validateRental(carId) {
+        var rentalDate = document.getElementById("rentalDate").value;
+        var returnDate = document.getElementById("returnDate").value;
+
+        if (!rentalDate || !returnDate) {
+            alert("Anda harus memasukan info Rental dan Return Date agar kami dapat menyediakan mobil sesuai kebutuhan anda.");
+            return false;
+        }
+
+        document.getElementById("rental_Date-" + carId).value = rentalDate;
+        document.getElementById("return_Date-" + carId).value = returnDate;
+
+        window.location.href = "/SewaCar?carId=" + carId + "&rentalDate=" + rentalDate + "&returnDate=" + returnDate;
+    }
+</script>
