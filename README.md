@@ -52,7 +52,7 @@ git clone https://github.com/MarcelinuZz/RentalCar.git
 >**Login Page & Register Page**
 >
 ><p inner = "left">
-><img src ="https://github.com/user-attachments/assets/3b2a027d-90d7-4c2f-8c8c-9fad9db2a4b5" width="500" height="300">
+><img src ="https://github.com/user-attachments/assets/3b2a027d-90d7-4c2f-8c8c-9fad9db2a4b5" width="300" height="300">
 ><img src ="https://github.com/user-attachments/assets/d990b635-d63b-476a-911f-ec565390a946" width="355">
 ></p>
 
