@@ -56,11 +56,11 @@ git clone https://github.com/MarcelinuZz/RentalCar.git
 ><img src ="https://github.com/user-attachments/assets/d990b635-d63b-476a-911f-ec565390a946" width="355">
 ></p>
 
->**Login Harga & Filter Rental Date**
+>**Filter Harga & Filter Rental Date**
 >
 ><p inner = "left">
-><img src ="https://github.com/user-attachments/assets/e89ea718-05a1-438b-8503-4569312f8b31" width="350">
-><img src ="https://github.com/user-attachments/assets/4a7cbbf5-91a7-4659-8f2e-5aded92a9550" width="350">
+><img src ="https://github.com/user-attachments/assets/e89ea718-05a1-438b-8503-4569312f8b31" width="370">
+><img src ="https://github.com/user-attachments/assets/4a7cbbf5-91a7-4659-8f2e-5aded92a9550" width="370">
 ></p>
 
 >**Payment Page**
