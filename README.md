@@ -52,15 +52,15 @@ git clone https://github.com/MarcelinuZz/RentalCar.git
 >**Login Page & Register Page**
 >
 ><p inner = "left">
-><img src ="https://github.com/user-attachments/assets/3b2a027d-90d7-4c2f-8c8c-9fad9db2a4b5" width="300" height="300">
+><img src ="https://github.com/user-attachments/assets/3b2a027d-90d7-4c2f-8c8c-9fad9db2a4b5" width="400" height="300">
 ><img src ="https://github.com/user-attachments/assets/d990b635-d63b-476a-911f-ec565390a946" width="355">
 ></p>
 
 >**Login Harga & Filter Rental Date**
 >
 ><p inner = "left">
-><img src ="https://github.com/user-attachments/assets/e89ea718-05a1-438b-8503-4569312f8b31" width="400">
-><img src ="https://github.com/user-attachments/assets/4a7cbbf5-91a7-4659-8f2e-5aded92a9550" width="400">
+><img src ="https://github.com/user-attachments/assets/e89ea718-05a1-438b-8503-4569312f8b31" width="350">
+><img src ="https://github.com/user-attachments/assets/4a7cbbf5-91a7-4659-8f2e-5aded92a9550" width="350">
 ></p>
 
 >**Payment Page**
